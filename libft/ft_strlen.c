@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flagscheck.c                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/13 15:04:33 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/13 18:40:41 by ojing-ha         ###   ########.fr       */
+/*   Created: 2022/07/04 14:53:43 by ojing-ha          #+#    #+#             */
+/*   Updated: 2022/07/07 17:26:39 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-void	ft_flagscheck(char c, t_flags *flags)
+size_t	ft_strlen(const char *str)
 {
-	if (c == '-')
-		flags->minus = 1;
-	else if (c == '0')
-		flags->zero = 1;
-	else if (c == '.')
-		flags->dot = 1;
-	else if (c == '#')
-		flags->hash = 1;
-	else if (c == ' ')
-		flags->space = 1;
-	else if (c == '+')
-		flags->plus = 1;
-	else
-		return ;
+	size_t	count;
+
+	count = 0;
+	while (*str != '\0')
+	{
+		count++;
+		str++;
+	}
+	return (count);
 }

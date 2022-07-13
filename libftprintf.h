@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:02:49 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/13 16:44:28 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/13 18:55:51 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ typedef struct s_flags
 	int	plus;
 	int	wc;
 	int	width;
-}	t_flags;
-
-typedef struct s_con
-{
+	int	index;
 	int	c;
 	int	s;
 	int	p;
@@ -38,16 +35,18 @@ typedef struct s_con
 	int	u;
 	int	x;
 	int	capx;
-}	t_con;
+	int	percent;
+}	t_flags;
 
 void	ft_initializeflags(t_flags *var);
-void	ft_initializecon(t_con *var);
 
-void	ft_checks(char	*str, int *index, t_con *type, t_flags *flags);
-int		ft_concheck(char c, t_con *type);
-int		ft_concheck1(char c, t_con *type);
-int		ft_concheck2(char c, t_con *type);
-int		ft_concheck3(char c, t_con *type);
+void	ft_checks(char	*str, int index, t_flags *flags);
+int		ft_concheck(char c, t_flags *type);
+int		ft_concheck1(char c, t_flags *type);
+int		ft_concheck2(char c, t_flags *type);
+int		ft_concheck3(char c, t_flags *type);
 void	ft_flagscheck(char c, t_flags *flags);
+void	ft_print(t_flags *flags, char *str, int index);
+void	ft_print_percent(t_flags *flags, char *str, int index);
 
 #endif

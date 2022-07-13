@@ -1,4 +1,4 @@
-FT_PRINTF_SRC	=  
+FT_PRINTF_SRC	= $(wildcard ft*.c) 
 
 OBJS 			= $(FT_PRINTF_SRC:.c=.o)
 
@@ -16,7 +16,8 @@ all		: $(NAME)
 
 $(NAME)	: ${OBJS}
 		make -C libft
-		cp libft/libft.a ./$(NAME)
+		cp libft/libft.a .
+		mv libft.a $(NAME)
 		${ARRC} ${NAME} ${OBJS}
 
 %.o		: %.c

@@ -6,11 +6,13 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 11:02:58 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/14 14:16:41 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/14 17:43:20 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*	Just to initialize all the variables to use in the future	*/
 
 void	ft_initializeflags(t_flags *var)
 {

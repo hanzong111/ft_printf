@@ -1,13 +1,10 @@
 
 
 SRCS 		= ft_substr.c\
-			  ft_putchar_fd.c\
 			  ft_atoi.c\
 			  ft_strdup.c\
-			  ft_strlen.c
+			  ft_strlen.c\
 			  
-
-
 INCLUDES 	= .
 
 OBJS		= $(SRCS:.c=.o)

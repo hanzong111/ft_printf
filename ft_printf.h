@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:02:49 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/14 16:32:41 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/14 19:34:34 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,27 @@
 
 typedef struct s_flags
 {
-	int	minus;
-	int	zero;
-	int	dot;
-	int	hash;
-	int	space;
-	int	plus;
-	int	wc;
-	int	width;
-	int	index;
-	int	c;
-	int	s;
-	int	p;
-	int	d;
-	int	i;
-	int	u;
-	int	x;
-	int	capx;
-	int	percent;
-	int	start;
-	int	end;
+	int		minus;
+	int		zero;
+	int		dot;
+	int		hash;
+	int		space;
+	int		plus;
+	int		wc;
+	int		width;
+	int		index;
+	int		c;
+	int		s;
+	int		p;
+	int		d;
+	int		i;
+	int		u;
+	int		x;
+	int		capx;
+	int		percent;
+	int		start;
+	int		end;
+	char	*substr;
 }	t_flags;
 
 void	ft_initializeflags(t_flags *var);

@@ -6,13 +6,18 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 11:33:41 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/14 14:20:56 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/14 20:06:36 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int	ft_print_conversion(char *str, int index, t_flags *flags, va_list args);
+
+/*	Keeps looping through the string until we hit a Null character	*/
+/*	ft_print_conversions()-> To deal with the % stuffs.				*/
+/*	when no % is present in the string, it just keeps printing the 	*/
+/*	string character by character.									*/
 
 int	ft_printf(char	*str, ...)
 {
@@ -31,7 +36,7 @@ int	ft_printf(char	*str, ...)
 			index = ft_print_conversion(str, index, &flags, args);
 		else
 		{
-			ft_putchar_fd(str[index], 1);
+			write(1, &str[index], 1);
 			index++;
 			flags.wc++;
 		}

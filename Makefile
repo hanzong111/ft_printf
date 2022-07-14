@@ -6,6 +6,7 @@ SRC				= 	ft_printf.c\
 					src/ft_initializeflags.c\
 					src/ft_print_percent.c\
 					src/ft_print.c\
+					src/ft_print_char.c\
 
 
 OBJS 			= 	ft_printf.o\
@@ -15,6 +16,7 @@ OBJS 			= 	ft_printf.o\
 					src/ft_initializeflags.o\
 					src/ft_print_percent.o\
 					src/ft_print.o\
+					src/ft_print_char.o\
 
 NAME			= libftprintf.a
 

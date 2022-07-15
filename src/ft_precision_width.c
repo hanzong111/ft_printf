@@ -6,11 +6,16 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 12:18:36 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/15 16:46:38 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/15 17:27:48 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*	ft_precision_width()-> To extract the width and precision value .		*/
+/*	Example	:	%10.30s														*/
+/*				f->width = 10;												*/
+/*				f->precision = 30;											*/
 
 void	ft_precision_width(t_flags *f, char *str, int index)
 {

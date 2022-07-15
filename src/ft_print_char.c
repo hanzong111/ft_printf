@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 14:27:27 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/14 20:06:27 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/15 07:44:44 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_print_char(t_flags *f, char *str, int index, int c)
 		f->wc = 1;
 		f->index = index + 1;
 	}
-	else if (f->minus)
+	else if (f->minus >= 1)
 		ft_print_minus_width(f, str, index, c);
 	else
 		ft_print_normal(f, str, index, c);
@@ -32,7 +32,8 @@ void	ft_print_char(t_flags *f, char *str, int index, int c)
 
 void	ft_print_minus_width(t_flags *f, char *str, int index, int c)
 {
-	index++;
+	while (--f->minus >= 0)
+		index++;
 	f->start = index;
 	while (ft_concheck1(str[index], f))
 		index++;

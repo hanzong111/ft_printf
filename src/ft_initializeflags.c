@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 11:02:58 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/14 17:43:20 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/15 16:42:51 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,6 @@ void	ft_initializeflags(t_flags *var)
 	var->percent = 0;
 	var->start = 0;
 	var->end = 0;
+	var->strlen = 0;
+	var->precision = 0;
 }

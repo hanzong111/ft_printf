@@ -4,6 +4,7 @@ SRCS 		= ft_substr.c\
 			  ft_atoi.c\
 			  ft_strdup.c\
 			  ft_strlen.c\
+			  ft_putstr_fd.c\
 			  
 INCLUDES 	= .
 

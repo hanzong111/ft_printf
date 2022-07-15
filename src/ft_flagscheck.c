@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 15:04:33 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/14 17:42:32 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/15 07:39:36 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@
 void	ft_flagscheck(char c, char d, t_flags *flags)
 {
 	if (c == '-')
-		flags->minus = 1;
+		flags->minus++;
 	else if (c == '0' && !(d >= '0' && d <= '9'))
-		flags->zero = 1;
+		flags->zero++;
 	else if (c == '.')
-		flags->dot = 1;
+		flags->dot++;
 	else if (c == '#')
-		flags->hash = 1;
+		flags->hash++;
 	else if (c == ' ')
 		flags->space++;
 	else if (c == '+')
-		flags->plus = 1;
+		flags->plus++;
 	else
 		return ;
 }

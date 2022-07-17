@@ -11,6 +11,10 @@ SRC				= 	ft_printf.c\
 					src/ft_precision_width.c\
 					src/ft_print_null.c\
 					src/ft_s_only_dot.c\
+					src/ft_typecheck.c\
+					src/ft_s_putstr.c\
+					src/ft_s_minus_dot.c\
+					src/ft_s_only_minus.c\
 
 OBJS 			= 	ft_printf.o\
 					src/ft_checks.o\
@@ -24,6 +28,10 @@ OBJS 			= 	ft_printf.o\
 					src/ft_precision_width.o\
 					src/ft_print_null.o\
 					src/ft_s_only_dot.o\
+					src/ft_typecheck.o\
+					src/ft_s_putstr.o\
+					src/ft_s_minus_dot.o\
+					src/ft_s_only_minus.o\
 
 NAME			= libftprintf.a
 

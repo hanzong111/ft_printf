@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:02:49 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/15 17:32:16 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/16 16:51:39 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,11 @@ int		ft_printf(char	*str, ...);
 void	ft_precision_width(t_flags *f, char *str, int index);
 void	ft_print_null(t_flags *f, char *str, int index);
 void	ft_s_only_dot(t_flags *f, char *str, int index, char *args);
+int		ft_typecheck(char c);
+void	ft_args_bigger(t_flags *f, char *str, int index, char *args);
+void	ft_s_putstr(t_flags *f, char *str);
+void	ft_s_minus_dot(t_flags *f, char *str, int index, char *args);
+void	ft_minus_args_smaller(t_flags *f, char *str, int index, char *args);
+void	ft_s_only_minus(t_flags *f, char *str, int index, char *args);
 
 #endif

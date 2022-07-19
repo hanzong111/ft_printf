@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 19:25:06 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/19 19:38:00 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/19 20:43:14 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	ft_precision_bigger(t_flags *f, t_info *info);
 void	ft_precision_smaller(t_flags *f, t_info *info);
 
-void	ft_minus_dot(t_flags *f, t_info *info)
+void	ft_minus_dot(t_flags *f, t_info *info, char	*type)
 {
 	if (f->hash)
-		ft_putstr_fd("0x", 1);
+		ft_putstr_fd(type, 1);
 	if (info->width >= info->precision)
 		ft_precision_bigger(f, info);
 	else

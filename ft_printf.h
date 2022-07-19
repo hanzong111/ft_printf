@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:02:49 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/19 19:45:44 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/19 20:55:14 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ void	ft_minus_width(t_info *info);
 void	ft_print_pointer(t_flags *f, t_info *info, unsigned long long args);
 void	ft_convert_ptr(t_info *info, char type, unsigned long long i);
 void	ft_print_lower_hexa(t_flags *f, t_info *info, unsigned int args);
-void	ft_convert_hex(t_info *info, unsigned int i);
+void	ft_convert_hex(t_flags *f, t_info *info, unsigned int i);
 void	ft_str_upper(char *str);
 void	ft_rev_tab(char *tab, int size);
-void	ft_minus_dot(t_flags *f, t_info *info);
-void	ft_only_dot(t_flags *f, t_info *info);
+void	ft_minus_dot(t_flags *f, t_info *info, char *type);
+void	ft_only_dot(t_flags *f, t_info *info, char *type);
 
 #endif

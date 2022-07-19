@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_typecheck.c                                     :+:      :+:    :+:   */
+/*   ft_print_lower_hexa.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 15:35:35 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/17 12:25:30 by ojing-ha         ###   ########.fr       */
+/*   Created: 2022/07/19 13:05:17 by ojing-ha          #+#    #+#             */
+/*   Updated: 2022/07/19 19:45:18 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_typecheck(char c)
+void	ft_print_lower_hexa(t_flags *f, t_info *info, unsigned int args)
 {
-	if (c == 'c')
-		return (0);
-	else if (c == 's')
-		return (0);
-	else if (c == 'p')
-		return (0);
-	else if (c == 'd')
-		return (0);
-	else if (c == 'i')
-		return (0);
-	else if (c == 'u')
-		return (0);
-	else if (c == 'x')
-		return (0);
-	else if (c == 'X')
-		return (0);
-	else if (c == '%')
-		return (0);
-	else
-		return (1);
+	ft_convert_hex(info, (unsigned int)args);
+	info->strlen = info->wc;
+	if (f->minus && f->dot)
+		ft_minus_dot(f, info);
+	else if (f->dot)
+		ft_only_dot(f, info);
+	free(info->format);
 }

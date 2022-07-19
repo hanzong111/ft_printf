@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_typecheck.c                                     :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 15:35:35 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/17 12:25:30 by ojing-ha         ###   ########.fr       */
+/*   Created: 2022/07/04 13:45:31 by ojing-ha          #+#    #+#             */
+/*   Updated: 2022/07/04 18:40:28 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_typecheck(char c)
+int	ft_isascii(int x)
 {
-	if (c == 'c')
-		return (0);
-	else if (c == 's')
-		return (0);
-	else if (c == 'p')
-		return (0);
-	else if (c == 'd')
-		return (0);
-	else if (c == 'i')
-		return (0);
-	else if (c == 'u')
-		return (0);
-	else if (c == 'x')
-		return (0);
-	else if (c == 'X')
-		return (0);
-	else if (c == '%')
-		return (0);
-	else
+	if (x >= 0 && x <= 127)
 		return (1);
+	else
+		return (0);
 }

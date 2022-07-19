@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_typecheck.c                                     :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 15:35:35 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/17 12:25:30 by ojing-ha         ###   ########.fr       */
+/*   Created: 2022/07/07 15:11:39 by ojing-ha          #+#    #+#             */
+/*   Updated: 2022/07/07 15:20:05 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_typecheck(char c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	if (c == 'c')
-		return (0);
-	else if (c == 's')
-		return (0);
-	else if (c == 'p')
-		return (0);
-	else if (c == 'd')
-		return (0);
-	else if (c == 'i')
-		return (0);
-	else if (c == 'u')
-		return (0);
-	else if (c == 'x')
-		return (0);
-	else if (c == 'X')
-		return (0);
-	else if (c == '%')
-		return (0);
-	else
-		return (1);
+	unsigned int	i;
+
+	i = 0;
+	if (!s || !f)
+		return ;
+	while (s[i] != '\0')
+	{
+		f(i, s + i);
+		i++;
+	}
 }

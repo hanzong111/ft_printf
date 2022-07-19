@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_typecheck.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 15:35:35 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/17 12:25:30 by ojing-ha         ###   ########.fr       */
+/*   Created: 2022/07/07 15:39:49 by ojing-ha          #+#    #+#             */
+/*   Updated: 2022/07/07 17:08:46 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_typecheck(char c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (c == 'c')
-		return (0);
-	else if (c == 's')
-		return (0);
-	else if (c == 'p')
-		return (0);
-	else if (c == 'd')
-		return (0);
-	else if (c == 'i')
-		return (0);
-	else if (c == 'u')
-		return (0);
-	else if (c == 'x')
-		return (0);
-	else if (c == 'X')
-		return (0);
-	else if (c == '%')
-		return (0);
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
 	else
-		return (1);
+	{
+		if (n < 0)
+		{
+			ft_putchar_fd('-', fd);
+			n = n * -1;
+		}
+		if (n > 9)
+		{
+			ft_putnbr_fd(n / 10, fd);
+		}
+		ft_putchar_fd((n % 10) + '0', fd);
+	}
 }

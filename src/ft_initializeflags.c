@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 11:02:58 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/15 16:42:51 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/17 12:23:51 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*	Just to initialize all the variables to use in the future	*/
 
-void	ft_initializeflags(t_flags *var)
+void	ft_initializeflags(t_flags *var, t_info *info)
 {
 	var->minus = 0;
 	var->zero = 0;
@@ -22,20 +22,8 @@ void	ft_initializeflags(t_flags *var)
 	var->hash = 0;
 	var->space = 0;
 	var->plus = 0;
-	var->wc = 0;
-	var->width = 0;
-	var->index = 0;
-	var->c = 0;
-	var->s = 0;
-	var->p = 0;
-	var->d = 0;
-	var->i = 0;
-	var->u = 0;
-	var->x = 0;
-	var->capx = 0;
-	var->percent = 0;
-	var->start = 0;
-	var->end = 0;
-	var->strlen = 0;
-	var->precision = 0;
+	info->wc = 0;
+	info->width = 0;
+	info->precision = 0;
+	info->strlen = 0;
 }

@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_typecheck.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 15:35:35 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/17 12:25:30 by ojing-ha         ###   ########.fr       */
+/*   Created: 2022/07/08 10:39:50 by ojing-ha          #+#    #+#             */
+/*   Updated: 2022/07/11 18:12:14 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_typecheck(char c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (c == 'c')
-		return (0);
-	else if (c == 's')
-		return (0);
-	else if (c == 'p')
-		return (0);
-	else if (c == 'd')
-		return (0);
-	else if (c == 'i')
-		return (0);
-	else if (c == 'u')
-		return (0);
-	else if (c == 'x')
-		return (0);
-	else if (c == 'X')
-		return (0);
-	else if (c == '%')
-		return (0);
-	else
-		return (1);
+	t_list	*lastlst;
+
+	lastlst = *lst;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	while (lastlst)
+	{
+		if (lastlst->next == NULL)
+		{
+			lastlst->next = new;
+			break ;
+		}
+		lastlst = lastlst->next;
+	}
 }

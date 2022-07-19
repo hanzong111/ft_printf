@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_typecheck.c                                     :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 15:35:35 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/17 12:25:30 by ojing-ha         ###   ########.fr       */
+/*   Created: 2022/07/05 16:49:34 by ojing-ha          #+#    #+#             */
+/*   Updated: 2022/07/05 17:00:07 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_typecheck(char c)
+char	*ft_strrchr(const char *s, int c)
 {
-	if (c == 'c')
-		return (0);
-	else if (c == 's')
-		return (0);
-	else if (c == 'p')
-		return (0);
-	else if (c == 'd')
-		return (0);
-	else if (c == 'i')
-		return (0);
-	else if (c == 'u')
-		return (0);
-	else if (c == 'x')
-		return (0);
-	else if (c == 'X')
-		return (0);
-	else if (c == '%')
-		return (0);
+	char	*str;
+	char	*final_ptr;
+	int		counter;
+
+	counter = 0;
+	str = (char *)s;
+	while (*str != '\0')
+	{
+		if (*str == (char)c)
+		{
+			final_ptr = str;
+			counter++;
+		}
+		str++;
+	}
+	if (counter != 0)
+		return (final_ptr);
+	if (c == '\0')
+		return (str);
 	else
-		return (1);
+		return (NULL);
 }

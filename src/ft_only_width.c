@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_typecheck.c                                     :+:      :+:    :+:   */
+/*   ft_only_width.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 15:35:35 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/17 12:25:30 by ojing-ha         ###   ########.fr       */
+/*   Created: 2022/07/17 17:13:59 by ojing-ha          #+#    #+#             */
+/*   Updated: 2022/07/18 15:11:30 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_typecheck(char c)
+void	ft_only_width(t_info *info)
 {
-	if (c == 'c')
-		return (0);
-	else if (c == 's')
-		return (0);
-	else if (c == 'p')
-		return (0);
-	else if (c == 'd')
-		return (0);
-	else if (c == 'i')
-		return (0);
-	else if (c == 'u')
-		return (0);
-	else if (c == 'x')
-		return (0);
-	else if (c == 'X')
-		return (0);
-	else if (c == '%')
-		return (0);
+	info->strlen = ft_strlen((const char *)info->format);
+	if (info->width < info->strlen)
+	{
+		ft_putstr_fd(info->format, 1);
+		info->wc = info->strlen;
+	}
 	else
-		return (1);
+	{
+		info->width = info->width - info->strlen;
+		while (--info->width >= 0)
+		{
+			write(1, " ", 1);
+			info->wc++;
+		}
+		ft_putstr_fd(info->format, 1);
+		info->wc = info->wc + info->strlen;
+	}
 }

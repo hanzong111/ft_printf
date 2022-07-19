@@ -6,58 +6,79 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 08:15:19 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/16 16:56:31 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:25:59 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_s_normal(t_flags *f, char *str, int index, char *args);
+void	ft_s_minus_dot(t_info *info, char *args);
+void	ft_s_only_dot(t_info *info, char *args);
+void	ft_s_only_minus(t_info *info, char *args);
 
-void	ft_print_str(t_flags *f, char *str, int index, char *args)
+void	ft_print_str(t_flags *f, t_info *info, char *args)
 {
-	index++;
+	info->format = args;
 	if (args == NULL)
 	{
-		ft_print_null(f, str, index);
+		ft_print_null(f, info);
 		return ;
 	}
-	if (str[index] == 's')
-	{
-		ft_s_putstr(f, args);
-		f->index = index + 1;
-	}
-	else if ((f->dot >= 1) && (f->minus >= 1))
-		ft_s_minus_dot(f, str, index, args);
+	if ((f->dot >= 1) && (f->minus >= 1))
+		ft_s_minus_dot(info, args);
 	else if (f->dot >= 1)
-		ft_s_only_dot(f, str, index, args);
+		ft_s_only_dot(info, args);
 	else if (f->minus >= 1)
-		ft_s_only_minus(f, str, index, args);
+		ft_s_only_minus(info, args);
+	else if (info->width)
+		ft_only_width(info);
 	else
-		ft_s_normal(f, str, index, args);
+	{
+		ft_putstr_fd(args, 1);
+		info->wc = ft_strlen((const char *)args);
+	}
 }
 
-void	ft_s_normal(t_flags *f, char *str, int index, char *args)
+void	ft_s_minus_dot(t_info *info, char *args)
 {
-	ft_precision_width(f, str, index);
-	f->strlen = ft_strlen(args);
-	if (f->strlen >= f->width)
+	info->strlen = ft_strlen((const char *)args);
+	if (info->precision >= info->strlen)
+		ft_minus_width(info);
+	else
+	{
+		info->format = ft_substr(args, 0, info->precision);
+		ft_minus_width(info);
+		free(info->format);
+	}
+}
+
+void	ft_s_only_dot(t_info *info, char *args)
+{
+	info->strlen = ft_strlen((const char *)args);
+	if (info->precision >= info->strlen)
+		ft_only_width(info);
+	else
+	{
+		info->format = ft_substr(args, 0, info->precision);
+		ft_only_width(info);
+		free(info->format);
+	}
+}
+
+void	ft_s_only_minus(t_info *info, char *args)
+{
+	info->strlen = ft_strlen(args);
+	if (info->strlen >= info->width)
 	{
 		ft_putstr_fd(args, 1);
-		f->wc = f->strlen;
-		while (!ft_typecheck(str[index]))
-			index++;
-		f->index = index + 1;
+		info->wc = info->strlen;
 	}
 	else
 	{
-		f->wc = f->width;
-		f->width = f->width - f->strlen;
-		while (--f->width >= 0)
-			write(1, " ", 1);
 		ft_putstr_fd(args, 1);
-		while (!ft_typecheck(str[index]))
-			index++;
-		f->index = index + 1;
+		info->wc = info->width;
+		info->width = info->width - info->strlen;
+		while (--info->width >= 0)
+			write(1, " ", 1);
 	}
 }

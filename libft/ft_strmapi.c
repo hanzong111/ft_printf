@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_typecheck.c                                     :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 15:35:35 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/17 12:25:30 by ojing-ha         ###   ########.fr       */
+/*   Created: 2022/07/07 14:43:35 by ojing-ha          #+#    #+#             */
+/*   Updated: 2022/07/07 15:08:39 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_typecheck(char c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if (c == 'c')
-		return (0);
-	else if (c == 's')
-		return (0);
-	else if (c == 'p')
-		return (0);
-	else if (c == 'd')
-		return (0);
-	else if (c == 'i')
-		return (0);
-	else if (c == 'u')
-		return (0);
-	else if (c == 'x')
-		return (0);
-	else if (c == 'X')
-		return (0);
-	else if (c == '%')
-		return (0);
-	else
-		return (1);
+	unsigned int	i;
+	char			*str;
+
+	if (!s)
+		return (NULL);
+	str = malloc(sizeof(char) * (ft_strlen((char *)s) + 1));
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

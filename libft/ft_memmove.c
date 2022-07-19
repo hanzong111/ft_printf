@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_typecheck.c                                     :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 15:35:35 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/17 12:25:30 by ojing-ha         ###   ########.fr       */
+/*   Created: 2022/07/04 19:46:15 by ojing-ha          #+#    #+#             */
+/*   Updated: 2022/07/05 16:44:11 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_typecheck(char c)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if (c == 'c')
-		return (0);
-	else if (c == 's')
-		return (0);
-	else if (c == 'p')
-		return (0);
-	else if (c == 'd')
-		return (0);
-	else if (c == 'i')
-		return (0);
-	else if (c == 'u')
-		return (0);
-	else if (c == 'x')
-		return (0);
-	else if (c == 'X')
-		return (0);
-	else if (c == '%')
-		return (0);
+	char		*dest;
+	const char	*source;
+	size_t		i;
+
+	if (dst == NULL && src == NULL)
+		return (dst);
+	source = src;
+	dest = dst;
+	i = 0;
+	if (dest > source)
+		while (len-- > 0)
+			dest[len] = source[len];
 	else
-		return (1);
+	{
+		while (i < len)
+		{
+			dest[i] = source[i];
+			i++;
+		}
+	}
+	return (dst);
 }

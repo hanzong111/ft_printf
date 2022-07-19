@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_typecheck.c                                     :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 15:35:35 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/17 12:25:30 by ojing-ha         ###   ########.fr       */
+/*   Created: 2022/07/06 13:51:20 by ojing-ha          #+#    #+#             */
+/*   Updated: 2022/07/06 13:57:02 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_typecheck(char c)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if (c == 'c')
+	unsigned char	*str1;
+	unsigned char	*str2;
+	size_t			i;
+
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	i = 0;
+	if (str1 == NULL && str2 == NULL)
 		return (0);
-	else if (c == 's')
-		return (0);
-	else if (c == 'p')
-		return (0);
-	else if (c == 'd')
-		return (0);
-	else if (c == 'i')
-		return (0);
-	else if (c == 'u')
-		return (0);
-	else if (c == 'x')
-		return (0);
-	else if (c == 'X')
-		return (0);
-	else if (c == '%')
-		return (0);
-	else
-		return (1);
+	while (++i <= n)
+	{
+		if (*str1 != *str2)
+		{
+			return (*str1 - *str2);
+		}
+		str1++;
+		str2++;
+	}
+	return (0);
 }

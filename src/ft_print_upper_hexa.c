@@ -1,32 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_lower_hexa.c                              :+:      :+:    :+:   */
+/*   ft_print_upper_hexa.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/19 13:05:17 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/20 15:21:56 by ojing-ha         ###   ########.fr       */
+/*   Created: 2022/07/20 16:00:02 by ojing-ha          #+#    #+#             */
+/*   Updated: 2022/07/20 16:12:30 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_lower_hexa(t_flags *f, t_info *info, unsigned int args)
+void	ft_str_toupper(char *str);
+
+void	ft_print_upper_hexa(t_flags *f, t_info *info, unsigned int args)
 {
 	ft_convert_hex(f, info, (unsigned int)args);
+	ft_str_toupper(info->format);
 	info->strlen = info->wc;
 	if (f->minus && f->dot)
-		ft_minus_dot(f, info, "0x");
+		ft_minus_dot(f, info, "0X");
 	else if (f->dot)
-		ft_only_dot(f, info, "0x");
+		ft_only_dot(f, info, "0X");
 	else if (f->minus)
-		ft_only_minus(f, info, "0x");
+		ft_only_minus(f, info, "0X");
 	else if (f->zero)
-		ft_only_zero(f, info, "0x");
+		ft_only_zero(f, info, "0X");
 	else if (info->width)
-		ft_only_width(f, info, "0x");
+		ft_only_width(f, info, "0X");
 	else
 		ft_putstr_fd(info->format, 1);
 	free(info->format);
+}
+
+void	ft_str_toupper(char *str)
+{
+	while (*str != '\0')
+	{
+		*str = (char)ft_toupper((int)*str);
+		str++;
+	}
 }

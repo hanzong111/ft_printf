@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 14:38:51 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/18 14:44:10 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/20 15:37:46 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_print_null(t_flags *f, t_info *info)
 	else if (info->width >= 6)
 	{
 		info->format = null;
-		ft_only_width(info);
+		ft_only_width(f, info, " ");
 	}
 	else
 	{

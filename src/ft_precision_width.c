@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 12:18:36 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/19 15:42:52 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/20 17:20:14 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_precision_width(char *str, t_flags *f, t_info *info)
 
 void	ft_width(t_info *info, char *str)
 {
-	while (*str == '-' || *str == '#' || *str == '0')
+	while (*str == '-' || *str == '#' || *str == '0' || *str == ' ')
 		str++;
 	info->width = ft_atoi(str);
 	while (*str != '.')
@@ -65,7 +65,7 @@ void	ft_precision(t_info *info, char *str)
 
 void	ft_no_precision_width(t_info *info, char *str)
 {
-	while (*str == '-' || *str == '#' || *str == '0')
+	while (*str == '-' || *str == '#' || *str == '0' || *str == ' ')
 		str++;
 	info->width = ft_atoi(str);
 	while (ft_typecheck(*str))

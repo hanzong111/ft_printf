@@ -6,7 +6,7 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 19:29:40 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/19 21:15:59 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/20 20:52:27 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,22 @@ void	ft_only_dot(t_flags *f, t_info *info, char *type)
 {
 	if (!info->precision)
 	{
-		if (f->hash)
+		if (f->hash || f->plus || f->space)
 		{
-			info->strlen = info->strlen + 2;
+			if (f->hash)
+				info->strlen = info->strlen + 2;
+			if (f->plus || f->space)
+				info->strlen++;
 			ft_putstr_fd(type, 1);
 		}
 		ft_putstr_fd(info->format, 1);
 		info->wc = info->strlen;
+		info->width -= info->wc;
+		while (--info->width >= 0)
+		{
+			write(1, " ", 1);
+			info->wc++;
+		}
 		return ;
 	}
 	if (info->width >= info->precision)
@@ -41,13 +50,15 @@ void	ft_bigger(t_flags *f, t_info *info, char *type)
 	{
 		if (f->hash)
 			info->strlen = info->strlen + 2;
+		if (f->plus || f->space)
+			info->strlen++;
 		info->precision -= info->wc;
 		info->strlen += info->precision;
 		info->wc = info->width;
 		info->width -= info->strlen;
 		while (--info->width >= 0)
 			write(1, " ", 1);
-		if (f->hash)
+		if (f->hash || f->plus || f->space)
 			ft_putstr_fd(type, 1);
 		while (--info->precision >= 0)
 			write(1, "0", 1);
@@ -61,11 +72,13 @@ void	ft_bigger2(t_flags *f, t_info *info, char *type)
 {
 	if (f->hash)
 		info->strlen = info->strlen + 2;
+	if (f->plus || f->space)
+			info->strlen++;
 	info->wc = info->width;
 	info->width -= info->strlen;
 	while (--info->width >= 0)
 		write(1, " ", 1);
-	if (f->hash)
+	if (f->hash || f->plus || f->space)
 		ft_putstr_fd(type, 1);
 	ft_putstr_fd(info->format, 1);
 	if (!info->precision)
@@ -77,9 +90,15 @@ void	ft_smaller(t_flags *f, t_info *info, char *type)
 	if (info->precision >= info->strlen)
 	{
 		info->strlen = info->precision;
-		if (f->hash)
+		if (f->hash || f->plus || f->space)
 		{
-			info->strlen = info->strlen + 2;
+			if (f->hash)
+				info->strlen = info->strlen + 2;
+			if (f->plus || f->space)
+			{
+				info->precision++;
+				info->strlen++;
+			}
 			ft_putstr_fd(type, 1);
 		}
 		while (--info->precision >= info->wc)
@@ -89,9 +108,15 @@ void	ft_smaller(t_flags *f, t_info *info, char *type)
 	}		
 	else
 	{
-		if (f->hash)
+		if (f->hash || f->plus || f->space)
 		{
-			info->strlen = info->strlen + 2;
+			if (f->hash)
+				info->strlen = info->strlen + 2;
+			if (f->plus || f->space)
+			{
+				info->precision++;
+				info->strlen++;
+			}
 			ft_putstr_fd(type, 1);
 		}
 		ft_putstr_fd(info->format, 1);

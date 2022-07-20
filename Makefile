@@ -6,7 +6,6 @@ SRC				= 	ft_printf.c\
 					src/ft_precision_width.c\
 					src/ft_typecheck.c\
 					src/ft_print_percent.c\
-					src/ft_print.c\
 					src/ft_only_zero.c\
 					src/ft_only_width.c\
 					src/ft_minus_width.c\
@@ -19,6 +18,9 @@ SRC				= 	ft_printf.c\
 					src/ft_convert_hex.c\
 					src/ft_minus_dot.c\
 					src/ft_only_dot.c\
+					src/ft_only_minus.c\
+					src/ft_print_upper_hexa.c\
+					src/ft_print_nbr.c\
 
 
 OBJS 			= 	ft_printf.o\
@@ -28,7 +30,6 @@ OBJS 			= 	ft_printf.o\
 					src/ft_precision_width.o\
 					src/ft_typecheck.o\
 					src/ft_print_percent.o\
-					src/ft_print.o\
 					src/ft_only_zero.o\
 					src/ft_only_width.o\
 					src/ft_minus_width.o\
@@ -41,6 +42,9 @@ OBJS 			= 	ft_printf.o\
 					src/ft_convert_hex.o\
 					src/ft_minus_dot.o\
 					src/ft_only_dot.o\
+					src/ft_only_minus.o\
+					src/ft_print_upper_hexa.o\
+					src/ft_print_nbr.o\
 
 NAME			= libftprintf.a
 

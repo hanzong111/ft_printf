@@ -6,14 +6,14 @@
 /*   By: ojing-ha <ojing-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 08:15:19 by ojing-ha          #+#    #+#             */
-/*   Updated: 2022/07/18 15:25:59 by ojing-ha         ###   ########.fr       */
+/*   Updated: 2022/07/20 15:37:00 by ojing-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 void	ft_s_minus_dot(t_info *info, char *args);
-void	ft_s_only_dot(t_info *info, char *args);
+void	ft_s_only_dot(t_flags *f, t_info *info, char *args);
 void	ft_s_only_minus(t_info *info, char *args);
 
 void	ft_print_str(t_flags *f, t_info *info, char *args)
@@ -27,11 +27,11 @@ void	ft_print_str(t_flags *f, t_info *info, char *args)
 	if ((f->dot >= 1) && (f->minus >= 1))
 		ft_s_minus_dot(info, args);
 	else if (f->dot >= 1)
-		ft_s_only_dot(info, args);
+		ft_s_only_dot(f, info, args);
 	else if (f->minus >= 1)
 		ft_s_only_minus(info, args);
 	else if (info->width)
-		ft_only_width(info);
+		ft_only_width(f, info, " ");
 	else
 	{
 		ft_putstr_fd(args, 1);
@@ -52,15 +52,15 @@ void	ft_s_minus_dot(t_info *info, char *args)
 	}
 }
 
-void	ft_s_only_dot(t_info *info, char *args)
+void	ft_s_only_dot(t_flags *f, t_info *info, char *args)
 {
 	info->strlen = ft_strlen((const char *)args);
 	if (info->precision >= info->strlen)
-		ft_only_width(info);
+		ft_only_width(f, info, " ");
 	else
 	{
 		info->format = ft_substr(args, 0, info->precision);
-		ft_only_width(info);
+		ft_only_width(f, info, " ");
 		free(info->format);
 	}
 }
